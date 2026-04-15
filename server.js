@@ -23,10 +23,10 @@ app.use('/api/foods', require('./routes/foods'));
 app.use('/api/payments', require('./routes/payments'));
 
 // MongoDB connection (ONLY ONCE)
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
-
+mongoose.connect(process.env.MONGO_URI, {
+  serverSelectionTimeoutMS: 30000,  // wait 30 seconds instead of 10
+  socketTimeoutMS: 45000,
+});
   app.get('/api/test', (req, res) => {
   res.send('API working');
 });
