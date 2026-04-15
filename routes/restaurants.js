@@ -13,3 +13,4 @@ router.delete('/:id', auth, isOwner, deleteRestaurant);
 
 
 module.exports = router;
+console.log("SERVER STARTED");
