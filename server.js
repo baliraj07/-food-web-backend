@@ -27,6 +27,9 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
+  app.get('/api/test', (req, res) => {
+  res.send('API working');
+});
 // Test route
 app.get('/', (req, res) => {
   res.send('Food Ordering API Running!');
