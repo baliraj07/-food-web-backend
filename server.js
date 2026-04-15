@@ -22,7 +22,7 @@ app.use('/api/reviews', require('./routes/reviews'));
 app.use('/api/foods', require('./routes/foods'));
 app.use('/api/payments', require('./routes/payments'));
 
-// MongoDB connection
+// MongoDB connection (ONLY ONCE)
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
@@ -35,9 +35,3 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-require('dotenv').config();
-const mongoose = require('mongoose');
-
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log(err));
